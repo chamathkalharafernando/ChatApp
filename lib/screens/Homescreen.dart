@@ -21,35 +21,50 @@ class _HomescreenState extends State<Homescreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Whatsapp Clone"),
+        title: Text(
+          "Whatsapp Clone",
+          style: TextStyle(color: Colors.white), // Added white color
+        ),
         actions: [
-          IconButton(icon: Icon(Icons.search), onPressed: () {}),
-          PopupMenuButton<String>(onSelected: (value) {
-            print(value);
-          }, itemBuilder: (BuildContext context) {
-            return [
-              PopupMenuItem(
-                child: Text("New group"),
-                value: "New group",
+          IconButton(
+              icon: Icon(
+                Icons.search,
+                color: Colors.white,
               ),
-              PopupMenuItem(
-                child: Text("New broadcast"),
-                value: "New broadcast",
-              ),
-              PopupMenuItem(
-                child: Text("Whatsapp Web"),
-                value: "Whatsapp Web",
-              ),
-              PopupMenuItem(
-                child: Text("Starred messages"),
-                value: "Starred messages",
-              ),
-              PopupMenuItem(
-                child: Text("Settings"),
-                value: "Settings",
-              ),
-            ];
-          })
+              onPressed: () {}),
+          PopupMenuButton<String>(
+            icon: Icon(
+              Icons.more_vert, // Three dots icon
+              color: Colors.white, // Added white color
+            ),
+            onSelected: (value) {
+              print(value);
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(
+                  child: Text("New group"),
+                  value: "New group",
+                ),
+                PopupMenuItem(
+                  child: Text("New broadcast"),
+                  value: "New broadcast",
+                ),
+                PopupMenuItem(
+                  child: Text("Whatsapp Web"),
+                  value: "Whatsapp Web",
+                ),
+                PopupMenuItem(
+                  child: Text("Starred messages"),
+                  value: "Starred messages",
+                ),
+                PopupMenuItem(
+                  child: Text("Settings"),
+                  value: "Settings",
+                ),
+              ];
+            },
+          )
         ],
         bottom: TabBar(
           controller: _controller,
